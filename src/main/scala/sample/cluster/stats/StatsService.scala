@@ -38,8 +38,8 @@ class StateAggregator(expectedResults: Int, replyTo: ActorRef) extends Actor {
         replyTo ! StatsResult(meanWordLength)
         context.stop(self)
       }
-    case ReceiveTimeout=>
-      replyTo! JobFailed("服务不可用,稍后再试")
+    case ReceiveTimeout =>
+      replyTo ! JobFailed("服务不可用,稍后再试")
       context.stop(self)
   }
 }
