@@ -1,6 +1,25 @@
 package sample.cluster.stats
 
-import akka.actor.Actor
+import akka.actor.{Actor, ActorRef, ActorSystem, Props, UntypedActor}
+
+class BasicActor extends UntypedActor{
+
+  override def preStart(): Unit = super.preStart()
+
+  override def postStop(): Unit = super.postStop()
+
+  override def preRestart(reason: Throwable, message: Option[Any]): Unit = super.preRestart(reason, message)
+
+  override def postRestart(reason: Throwable): Unit = super.postRestart(reason)
+
+  override def onReceive(message: Any): Unit = {
+
+  }
+
+}
+
+
+
 
 /**
   * Created by yanglei on 2016/12/5.
@@ -20,4 +39,7 @@ class StatsWorker extends Actor {
       sender() ! length
     }
   }
+
 }
+
+
